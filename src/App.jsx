@@ -14,7 +14,7 @@ const initialFilter = {
 	offset: 0,
 };
 function App() {
-	const [jobs, setJobs] = useState([]);
+	const [jobs, setJobs] = useState(initialJobs);
 	const [jobsCount, setJobsCount] = useState(0);
 	const [filters, setFilters] = useState(initialFilter);
 	const firstRender = useRef(true);
@@ -31,7 +31,7 @@ function App() {
 					!(parseInt(job.minExp) >= parseInt(filters.minExperience))) ||
 				(parseInt(filters.minSalary) &&
 					parseInt(job.minJdSalary) &&
-					!(parseInt(job.minJdSalary) <= parseInt(filters.minSalary))) ||
+					!(parseInt(job.minJdSalary) >= parseInt(filters.minSalary))) ||
 				(filters.companyName && !job.companyName.toLowerCase().includes(filters.companyName.toLowerCase())) ||
 				(filters.location && !job.location.toLowerCase().includes(filters.location.toLowerCase())) ||
 				(filters.role && !job.jobRole.toLowerCase().includes(filters.role.toLowerCase()))
