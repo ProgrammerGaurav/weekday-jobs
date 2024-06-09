@@ -14,16 +14,11 @@ const initialFilter = {
 	offset: 0,
 };
 function App() {
-	const [jobs, setJobs] = useState(initialJobs);
+	const [jobs, setJobs] = useState([]);
 	const [jobsCount, setJobsCount] = useState(0);
 	const [filters, setFilters] = useState(initialFilter);
-	const firstRender = useRef(true);
 
 	useEffect(() => {
-		if (firstRender.current) {
-			firstRender.current = false;
-			return;
-		}
 		const newJobs = initialJobs.filter((job) => {
 			if (
 				(parseInt(filters.minExperience) &&
