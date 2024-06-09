@@ -1,0 +1,16 @@
+.filters {
+	margin: 20px auto;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 10px;
+	& > div {
+		flex: 1;
+		height: 30px;
+		text-wrap: nowrap;
+		input {
+			height: 36px;
+			width: 100%;
+			padding: 10px;
+		}
+	}
+}
